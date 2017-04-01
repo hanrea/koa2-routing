@@ -1,8 +1,10 @@
 koa2-routing
 ================
+
+[![Build Status](https://travis-ci.org/hanrea/koa2-routing.svg?branch=master)](https://travis-ci.org/hanrea/koa2-routing)
+
 ``express`` classic route style.
 Manage koa2 routes on right way, forked from ivpusic/koa-routing.
-
 
 
 ## Installation
