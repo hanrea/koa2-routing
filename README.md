@@ -48,7 +48,7 @@ If you like ctx idea, you are on right place.
 
 ### Example
 
-[Example]("./examples/app.js")
+[Example app](https://github.com/hanrea/koa2-routing/blob/master/examples/app.js)
 
 Let's define following routes:
 - ``/users`` [GET, POST, PUT],
