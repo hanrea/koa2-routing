@@ -158,18 +158,21 @@ Keep in mind that nested creates new route for you and returns created route. Yo
 
 #### before
 
-You can define function which will be executed before each route method, and before all nested routes.
+You can define functions which will be executed before each route method, and before all nested routes.
 ```
 app.route('/someRoute')
 	.before(async (ctx,next) {
+		await next();
 		ctx.status = 300;
+        ctx.body = "before:"+ ctx.body;
 	})
 	.get(async (ctx,next) {
-		ctx.body = 'should not be here';
+		ctx.body = "Body has one 'before' prefix";
 		ctx.status = 200;
 		await next();
 	});
 ```
+
 
 #### all
 

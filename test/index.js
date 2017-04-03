@@ -95,10 +95,12 @@ describe('router is', function () {
 
     app.route('/before')
       .before( async (ctx,next)=> {
+        await next();
         ctx.status = 300;
+        ctx.body = "before:"+ ctx.body;
       })
       .get( async (ctx,next)=> {
-        ctx.body = 'should not be here';
+        ctx.body = "Body has one 'before' prefix";
         ctx.status = 200;
         await next();
       });
@@ -250,10 +252,20 @@ describe('router is', function () {
   });
 
   describe('going into /before route for .before testing', function () {
+      it('will be error expected for GET /before', function (done) {
+          request(app.listen())
+              .get('/before')
+              .expect("before:Body has one 'before' prefix")
+              .expect(300, done);
+      });
+  });
+
+  describe('going into /before route for .before testing', function () {
     it('will be error expected for GET /before', function (done) {
-      request(app.listen())
-        .get('/before')
-        .expect(300, done);
+        request(app.listen())
+          .get('/before')
+            .expect("before:Body has one 'before' prefix")
+          .expect(300, done);
     });
   });
 
