@@ -28,6 +28,8 @@ module.exports = function (app) {
   require('./api')(app.route('/api'));
   require('./user')(app.route('/user'));
 
+  app.route("/jump").redirect("https://www.npmjs.org");
+
   app.route(/^data/).all(resexpHandler);
   app.route('/:path').all(paramsHandler).before(logHandler);
   app.route('/*').all(logHandler,commonHandler);

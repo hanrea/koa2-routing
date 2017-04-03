@@ -23,3 +23,6 @@ app.listen("9090","0.0.0.0");
 // GET http://127.0.0.1:9090/abcdre    for "/*"
 // GET http://127.0.0.1:9090/data1234  for "/^data/"
 // GET http://127.0.0.1:9090/end23425  for "/^end/" this is Wrong usage,
+
+
+// browser  http://127.0.0.1:9090/jump

@@ -15,7 +15,7 @@ npm install koa2-routing
 ## Motivation
 `koa-routing` is the best route I've ever used. So, I upgraded it to koa2.
 
-It separate  route definitions into multiple files. Also It  make easier to specify route handlers, and execute some methods before some set of routes, for example ensuring that user is authenticated before doing some action.
+It separate route definitions into multiple files. Also It  make easier to specify route handlers, and execute some methods before some set of routes, for example ensuring that user is authenticated before doing some action.
 
 `koa-routing` 是我用过最好用的koa路由工具，所以我将它升级到koa2版本，未来仍将继续维护。
 支持将路由定义分成多个文件。此外，你能更容易指定路由处理程序，并执行一些方法之前做一些其他操作，例如确保用户身份验证之前做一些行动。
@@ -129,6 +129,12 @@ app.route('api/users').get(handler);
 ```
 
 Keep in mind that every call returns router instance, so everything can be chained.
+
+#### redirect
+
+```
+app.route('/jump').redirect("toUrl");
+```
 
 #### nested
 
