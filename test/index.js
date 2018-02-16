@@ -12,8 +12,8 @@ let   users;
 describe('router is', function () {
 
     before(function () {
-        app.use(routing(app)).should.be.ok;
-        app2.use(routing(app2)).should.be.ok;
+        app.use(routing(app));
+        app2.use(routing(app2));
 
         app.route("/jump").redirect("https://www.nodejs.org/");
 
@@ -24,17 +24,17 @@ describe('router is', function () {
                 message: 'from users GET'
             };
             await next();
-        }).should.be.ok;
+        });
 
         users.post( async (ctx,next)=> {
             ctx.body = 'from users POST';
             await next();
-        }).should.be.ok;
+        });
 
         users.all( async (ctx,next) => {
             ctx.body = 'from users ALL';
             await next();
-        }).should.be.ok;
+        });
 
         users.nested('/:id')
             .get( async (ctx,next)=> {
@@ -50,7 +50,7 @@ describe('router is', function () {
             .all( async (ctx,next)=> {
                 ctx.body = 'ALL ok';
                 await next();
-            }).should.be.ok;
+            });
 
 
         app.route(/^\/date\/\d{4}-\d{2}-\d{2}\/?/)
